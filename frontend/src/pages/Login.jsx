@@ -26,7 +26,7 @@ const Login = () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/auth/login`,
-        formData
+          formData,
       );
       if (response.status === 200) {
         let token = response.data.token;
@@ -38,7 +38,6 @@ const Login = () => {
         });
         const decodedToken = jwtDecode(token);
         console.log(decodedToken);
-        
 
         setUser(decodedToken);
         if (decodedToken.role === "admin") {

@@ -25,7 +25,8 @@ const Home = () => {
     }
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, fd);
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth/signup`,fd );
 
       if (res.data) {
         localStorage.setItem("UserInfo", JSON.stringify(res.data.userSaved));
@@ -46,7 +47,6 @@ const Home = () => {
     return today.toISOString().split("T")[0];
   }
 
-
   return (
     <div className="p-10 bg-gradient-to-r from-blue-500 to-purple-500">
       <motion.form
@@ -66,7 +66,9 @@ const Home = () => {
         </motion.h2>
 
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="name" className="block font-medium">Full Name:</label>
+          <label htmlFor="name" className="block font-medium">
+            Full Name:
+          </label>
           <input
             id="name"
             {...register("name")}
@@ -77,7 +79,9 @@ const Home = () => {
         </div>
 
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="username" className="block font-medium">Username:</label>
+          <label htmlFor="username" className="block font-medium">
+            Username:
+          </label>
           <input
             id="username"
             {...register("username")}
@@ -85,11 +89,15 @@ const Home = () => {
             placeholder="Username"
             className="p-2 border mt-2 border-gray-300 rounded-md w-full"
           />
-          {errors.username && <p className="error-text">{errors.username.message}</p>}
+          {errors.username && (
+            <p className="error-text">{errors.username.message}</p>
+          )}
         </div>
 
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="email" className="block font-medium">Email:</label>
+          <label htmlFor="email" className="block font-medium">
+            Email:
+          </label>
           <input
             id="email"
             type="email"
@@ -101,7 +109,9 @@ const Home = () => {
         </div>
 
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="phone" className="block font-medium">Mobile No:</label>
+          <label htmlFor="phone" className="block font-medium">
+            Mobile No:
+          </label>
           <input
             id="phone"
             type="tel"
@@ -109,11 +119,15 @@ const Home = () => {
             placeholder="Phone Number"
             className="p-2 border mt-2 border-gray-300 rounded-md w-full"
           />
-          {errors.phoneno && <p className="error-text">{errors.phoneno.message}</p>}
+          {errors.phoneno && (
+            <p className="error-text">{errors.phoneno.message}</p>
+          )}
         </div>
 
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="dob" className="block font-medium">Date of Birth:</label>
+          <label htmlFor="dob" className="block font-medium">
+            Date of Birth:
+          </label>
           <input
             id="dob"
             {...register("dob")}
@@ -122,44 +136,65 @@ const Home = () => {
             placeholder="Date of Birth (e.g., 1999-01-01)"
             className="p-2 border mt-2 border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          {errors.dob && <p className="text-sm text-red-600 mt-1">{errors.dob.message}</p>}
+          {errors.dob && (
+            <p className="text-sm text-red-600 mt-1">{errors.dob.message}</p>
+          )}
         </div>
 
-
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="gender" className="block font-medium">Select Gender</label>
-          <select {...register("gender")} className="p-2 mt-2 border border-gray-300 rounded-md w-full">
+          <label htmlFor="gender" className="block font-medium">
+            Select Gender
+          </label>
+          <select
+            {...register("gender")}
+            className="p-2 mt-2 border border-gray-300 rounded-md w-full"
+          >
             <option value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
-          {errors.gender && <p className="error-text">{errors.gender.message}</p>}
+          {errors.gender && (
+            <p className="error-text">{errors.gender.message}</p>
+          )}
         </div>
 
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="deg" className="block font-medium">Degree:</label>
+          <label htmlFor="deg" className="block font-medium">
+            Degree:
+          </label>
           <input
             id="deg"
             {...register("degree")}
             placeholder="Degree"
             className="p-2 border mt-2 border-gray-300 rounded-md w-full"
           />
-          {errors.degree && <p className="error-text">{errors.degree.message}</p>}
+          {errors.degree && (
+            <p className="error-text">{errors.degree.message}</p>
+          )}
         </div>
 
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="department" className="block font-medium">Department:</label>
-          <select {...register("department")} className="p-2 mt-2 border border-gray-300 rounded-md w-full">
+          <label htmlFor="department" className="block font-medium">
+            Department:
+          </label>
+          <select
+            {...register("department")}
+            className="p-2 mt-2 border border-gray-300 rounded-md w-full"
+          >
             <option value="">Select Department</option>
             <option value="technical_role">Technical</option>
             <option value="business_role">Business</option>
           </select>
-          {errors.department && <p className="error-text">{errors.department.message}</p>}
+          {errors.department && (
+            <p className="error-text">{errors.department.message}</p>
+          )}
         </div>
 
         <div className="col-span-full">
-          <label htmlFor="sop" className="block font-medium">Statement of Purpose</label>
+          <label htmlFor="sop" className="block font-medium">
+            Statement of Purpose
+          </label>
           <textarea
             id="sop"
             {...register("sop")}
@@ -174,7 +209,9 @@ const Home = () => {
         </div>
 
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="resume" className="block font-medium">Upload Resume:</label>
+          <label htmlFor="resume" className="block font-medium">
+            Upload Resume:
+          </label>
           <input
             id="resume"
             type="file"
@@ -185,15 +222,19 @@ const Home = () => {
         </div>
 
         <div className="col-span-full md:col-span-1">
-          <label htmlFor="password" className="block font-medium">Password:</label>
+          <label htmlFor="password" className="block font-medium">
+            Password:
+          </label>
           <input
-          id="password"
+            id="password"
             type="password"
             {...register("password")}
             placeholder="Create Password"
             className="p-2 border mt-2 border-gray-300 rounded-md w-full"
           />
-          {errors.password && <p className="error-text">{errors.password.message}</p>}
+          {errors.password && (
+            <p className="error-text">{errors.password.message}</p>
+          )}
         </div>
 
         <div className="col-span-full">
